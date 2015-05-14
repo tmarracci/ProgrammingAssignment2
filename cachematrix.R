@@ -15,10 +15,10 @@ makeCacheMatrix <- function(x = matrix()) {
     ## get this matrix
     get <- function() x
     
-    ## calculate the inverse
+    ## return the cached inverse (it might be null)
     getinverse <- function() m
     
-    ## set the cached inverse value
+    ## set the cached inverse 
     setinverse <- function(inverse) m <<- inverse
     
     ## return a list that contains these methods
@@ -41,6 +41,7 @@ cacheSolve <- function(x, ...) {
         return(m)
     }
     
+    ## calculate the matrix inverse and set the cache
     m <- solve(x$get())
     x$setinverse(m)
     
